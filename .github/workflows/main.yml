@@ -1,13 +1,19 @@
-name: First CI Pipeline
+name: CI Pipeline with Test
 
 on: [push]
 
 jobs:
-  run-code:
+  test:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
 
-      - name: Run Python
-        run: python trial.py
+      - name: Set up Python
+        run: python --version
+
+      - name: Install dependencies
+        run: pip install pytest
+
+      - name: Run tests
+        run: pytest
