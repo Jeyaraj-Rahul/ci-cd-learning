@@ -1,0 +1,13 @@
+name: First CI Pipeline
+
+on: [push]
+
+jobs:
+  run-code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run Python
+        run: python trial.py
